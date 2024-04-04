@@ -10,7 +10,7 @@ body {
   grid-auto-rows: 100px 69vh 100px;
   grid-template-areas:
     "a a a a a"
-    "b b b c c"
+    "b b b b b"
     "d d d d d";
 }
 
@@ -22,6 +22,7 @@ body {
   background-color: black;
   padding: 12px;
   color: white;
+  text-align: center;
 }
 
 #div1 h1 {
@@ -39,17 +40,10 @@ body {
   border: 1px solid black;
   grid-area: b;
   background-color: white;
+  column-count: 3;
+  column-gap: normal;
 }
 .div3 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 8px;
-  grid-area: 2 / 4 / 5 / 6;
-  border: 1px solid black;
-  grid-area: c;
-  background-color: white;
-}
-.div4 {
   grid-area: 5 / 1 / 6 / 6;
   border: 1px solid black;
   border-radius: 0px 0px 20px 20px;

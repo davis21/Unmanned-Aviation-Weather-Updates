@@ -1,0 +1,74 @@
+{
+  "icao": "KJFK",
+  "name": "John F Kennedy International Airport",
+  "metar": "KJFK 161551Z 31021G32KT 10SM FEW060 FEW250 03/M08 A2990 RMK AO2 PK WND 32036/1537 SLP126 T00281083 $",
+  "barometer": {
+    "hg": 29.9,
+    "hpa": 1013.0,
+    "kpa": 101.25,
+    "mb": 1012.53
+  },
+  "clouds": [
+    {
+      "base_feet_agl": 6000,
+      "base_meters_agl": 1829,
+      "code": "FEW",
+      "text": "Few",
+      "feet": 6000,
+      "meters": 1829
+    },
+    {
+      "base_feet_agl": 25000,
+      "base_meters_agl": 7620,
+      "code": "FEW",
+      "text": "Few",
+      "feet": 25000,
+      "meters": 7620
+    }
+  ],
+  "dewpoint": {
+    "celsius": -8,
+    "fahrenheit": 18
+  },
+  "elevation": {
+    "feet": 10.0,
+    "meters": 3.0
+  },
+  "flight_category": "VFR",
+  "humidity": {
+    "percent": 45
+  },
+  "observed": "2024-02-16T15:51:00",
+  "station": {
+    "geometry": {
+      "coordinates": [
+        -73.779317,
+        40.639447
+      ],
+      "type": "Point"
+    },
+    "location": "New York, New York, United States",
+    "type": "Airport"
+  },
+  "temperature": {
+    "celsius": 3,
+    "fahrenheit": 37
+  },
+  "visibility": {
+    "miles": "Greater than 10",
+    "miles_float": 10.0,
+    "meters": "16,100",
+    "meters_float": 16100.0
+  },
+  "wind": {
+    "degrees": 310,
+    "speed_kph": 39,
+    "speed_kts": 21,
+    "speed_mph": 24,
+    "speed_mps": 11,
+    "gust_kph": 59,
+    "gust_kts": 32,
+    "gust_mph": 37,
+    "gust_mps": 16
+  }
+}

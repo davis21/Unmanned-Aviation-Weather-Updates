@@ -21,7 +21,10 @@ function success(response) {
   if (response.results > 0) {
     var metar = response.data[0];
 
+    console.log(metar);
+
     document.getElementById("icao").innerText = "ICAO: " + metar.icao;
+    document.getElementById("observed").innerText = "METAR: " + metar.observed;
     document.getElementById("name").innerText = metar.station.name;
 
     if (metar.barometer) {
@@ -31,33 +34,29 @@ function success(response) {
       document.getElementById("mb").innerText = metar.barometer.mb + " mb";
     }
 
-    /*if (metar.visibility) {
-      document.getElementById("visibility_miles").innerText =
-        metar.visibility.miles;
-      document.getElementById("visibility_block").classList.remove("d-none");
+    if (metar.temperature) {
+      document.getElementById("f").innerText =
+        metar.temperature.fahrenheit + "\u00b0F";
+      document.getElementById("c").innerText =
+        metar.temperature.celsius + "\u00b0C";
     }
 
-    if (metar.clouds[0]) {
-      document.getElementById("cloud_block").classList.remove("d-none");
-      metar.clouds.forEach((cloud) => {
-        var el = document.createElement("li");
-        el.innerHTML =
-          cloud.text +
-          " at " +
-          cloud.base_feet_agl +
-          " <small> feet AGL</small>";
-        document.getElementById("cloud_list").appendChild(el);
-      });
+    if (metar.clouds) {
+      document.getElementById("feet").innerText =
+        metar.clouds[0].feet + " feet";
+      document.getElementById("meter").innerText =
+        metar.clouds[0].meters + " meters";
+      document.getElementById("text").innerText = metar.clouds[0].text;
+      document.getElementById("code").innerText = metar.clouds[0].code;
     }
 
-    if (metar.conditions[0]) {
-      document.getElementById("cond_block").classList.remove("d-none");
-      metar.conditions.forEach((cond) => {
-        var el = document.createElement("li");
-        el.innerHTML = cond.text;
-        document.getElementById("cond_list").appendChild(el);
-      });
-    }*/
+    if (metar.wind) {
+      document.getElementById("degree").innerText =
+        metar.wind.degrees + " degrees";
+      document.getElementById("mph").innerText = metar.wind.speed_mph + " mph";
+      document.getElementById("kph").innerText = metar.wind.speed_kph + " kph";
+      document.getElementById("kts").innerText = metar.wind.kts + " knots";
+    }
   } else {
     document.getElementById("raw").innerText = "No results returned from API";
   }
