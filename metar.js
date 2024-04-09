@@ -60,38 +60,9 @@ function success(response) {
       document.getElementById("humid").innerText = metar.humidity.percent + "%";
     }
 
-    if (metar.station) {
-      const apiKey = "7bc9f19e8857bf3aee73aa0014e2fd6c";
-      const [lat, lon] = metar.station.geometry.coordinates;
-      const exclude = "minutely,alerts";
-      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}`;
-
-      fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data); // Handle the data from the API
-        })
-        .catch((error) => {
-          console.error(
-            "There was a problem with your fetch operation:",
-            error
-          );
-        });
+    if (metar.observed) {
+      document.getElementById("time").innerText = metar.observed;
     }
-
-    /*if (metar.clouds) {
-      document.getElementById("feet").innerText =
-        metar.clouds[0].feet + " feet";
-      document.getElementById("meter").innerText =
-        metar.clouds[0].meters + " meters";
-      document.getElementById("text").innerText = metar.clouds[0].text;
-      document.getElementById("code").innerText = metar.clouds[0].code;
-    }*/
   } else {
     document.getElementById("raw").innerText = "No results returned from API";
   }

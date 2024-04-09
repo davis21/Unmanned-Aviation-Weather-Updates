@@ -38,15 +38,14 @@ body {
   grid-column-gap: 20px;
   grid-row-gap: 15px;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(6, 100px);
+  grid-template-rows: 50px repeat(5, 100px);
   grid-template-areas:
     "a1 a1"
     "b1 c1"
     "d1 e1"
     "f1 g1"
     "h1 i1"
-    "j1 j1"
-    "k1 k1";
+    "j1 j1";
 }
 .diva {
   grid-area: a1;
@@ -96,12 +95,6 @@ body {
 
 .divj {
   grid-area: j1;
-  background-color: lightgrey;
-  padding-left: 20px;
-}
-
-.divk {
-  grid-area: k1;
   background-color: lightgrey;
   padding-left: 20px;
 }
