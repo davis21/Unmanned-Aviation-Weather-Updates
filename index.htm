@@ -4,55 +4,66 @@
     <title>UAS Weather</title>
     <link href="styles.css" rel="stylesheet" />
     <script src="metar.js"></script>
+    <!-- Used for Search Engine Optimization -->
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Set View Scale 1:1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
     <div class="parent">
-      <div class="div1" id="div1">
+      <div class="div1 header" id="div1">
         <h1 id="name"></h1>
       </div>
       <div class="div2">
         <div class="diva"><h3 id="icao"></h3></div>
-        <div class="divb">
+        <div class="divb formatting size_change">
           <h3><strong>Temperature (F/C)</strong></h3>
           <p id="f"></p>
         </div>
-        <div class="divc">
+        <div class="divc formatting size_change">
           <h3><strong>Wind</strong></h3>
           <p id="mph"></p>
         </div>
-        <div class="divd">
+        <div class="divd formatting size_change">
           <h3><strong>Wind Direction</strong></h3>
           <p id="degree"></p>
         </div>
-        <div class="dive">
+        <div class="dive formatting size_change">
           <h3><strong>Visibility</strong></h3>
           <p id="meters"></p>
         </div>
-        <div class="divf">
+        <div class="divf formatting size_change">
           <h3><strong>Cloud Cover</strong></h3>
           <p id="cover"></p>
         </div>
-        <div class="divg">
+        <div class="divg formatting size_change">
           <h3><strong>Pressure</strong></h3>
           <p id="pressure"></p>
         </div>
-        <div class="divh">
+        <div class="divh formatting size_change">
           <h3><strong>Dew Point</strong></h3>
           <p id="dew"></p>
         </div>
-        <div class="divi">
+        <div class="divi formatting size_change">
           <h3><strong>Humidity</strong></h3>
           <p id="humid"></p>
         </div>
-        <div class="divj">
+        <div class="divj formatting size_change">
           <h3><strong>Observed</strong></h3>
           <p id="time"></p>
         </div>
       </div>
       <div class="div3 rmiddle">
-        <h2 class="header">Project by Davis King</h2>
-        <h2 class="header">|davisking21@gmail.com</h2>
+        <h2 class="header">Project by Davis King|</h2>
+        <h2 class="header">
+          <a href="mailto:davisking21@gmail.com" class="email_link"
+            >Davisking21@gmail.com</a
+          >
+        </h2>
         <!-- <h1 class="header">Hello</h1> -->
       </div>
     </div>

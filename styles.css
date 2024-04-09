@@ -1,8 +1,19 @@
 body {
-  background-color: grey;
+  background-image: url(Images/uas_bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: var(--black);
 }
 
 .parent {
+  margin: 20px auto;
+  width: 1280px;
+  height: auto;
+  padding: 10px;
+  opacity: 95%;
+
   display: grid;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -19,18 +30,16 @@ body {
   border: 1px solid black;
   border-radius: 20px 20px 0px 0px;
   grid-area: a;
-  background-color: black;
+  background-color: #0c1818;
   padding: 12px;
-  color: white;
   text-align: center;
 }
 
 .div2 {
   padding: 10px;
   border: 1px solid black;
-  border-top: 1px solid white;
   grid-area: b;
-  background-color: white;
+  background-color: #c8e3ef;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -49,69 +58,44 @@ body {
 }
 .diva {
   grid-area: a1;
-  padding-left: 20px;
 }
 .divb {
   grid-area: b1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
 .divc {
   grid-area: c1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
 .divd {
   grid-area: d1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
 .dive {
   grid-area: e1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
 .divf {
   grid-area: f1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
 .divg {
   grid-area: g1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
 .divh {
   grid-area: h1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
-
 .divi {
   grid-area: i1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
-
 .divj {
   grid-area: j1;
-  background-color: lightgrey;
-  padding-left: 20px;
 }
-
 .div3 {
-  border: 1px solid black;
   border-radius: 0px 0px 20px 20px;
   grid-area: c;
-  background-color: black;
   padding: 12px;
+  background-color: #0c1818;
 }
-
 .header {
-  color: white;
+  color: #c8e3ef;
   display: inline;
 }
-
 .rmiddle {
   /* Centers content horizontally */
   display: flex;
@@ -119,3 +103,43 @@ body {
   align-items: center;
   flex-direction: row;
 }
+
+.formatting {
+  border-radius: 20px 20px 20px 20px;
+  background-color: #93c3d7;
+  padding-left: 20px;
+}
+
+.size_change {
+  transition: all 0.2s ease;
+}
+
+.size_change:hover {
+  transform: scale(1.025);
+}
+
+/* Define the initial state of the email link */
+a {
+  color: #c8e3ef; /* Initial color */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Define the hover state */
+a:hover {
+  color: #4a98b4; /* New color when hovered over */
+}
+
+/* Color Pallete
+#36626A
+#C8E3EF
+#689FB1
+#6A784D
+#5A5F47
+#93C3D7
+#0C1818
+#F0F7F8
+#8C9693
+#4A98B4
+#A1AC9A
+#3EBAB5
+*/
