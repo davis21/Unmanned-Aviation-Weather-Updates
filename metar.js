@@ -23,41 +23,100 @@ function success(response) {
 
     console.log(metar);
 
-    document.getElementById("icao").innerText = "ICAO: " + metar.icao;
-    document.getElementById("observed").innerText = "METAR: " + metar.observed;
+    document.getElementById("icao").innerText =
+      "UAS Weather for " + metar.icao + " ---- " + metar.raw_text;
     document.getElementById("name").innerText = metar.station.name;
-
-    if (metar.barometer) {
-      document.getElementById("hg").innerText = metar.barometer.hg + " inHg";
-      document.getElementById("hpa").innerText = metar.barometer.hpa + " hPa";
-      document.getElementById("kpa").innerText = metar.barometer.kpa + " kPa";
-      document.getElementById("mb").innerText = metar.barometer.mb + " mb";
-    }
 
     if (metar.temperature) {
       document.getElementById("f").innerText =
         metar.temperature.fahrenheit + "\u00b0F";
-      document.getElementById("c").innerText =
-        metar.temperature.celsius + "\u00b0C";
+    }
+
+    if (metar.wind) {
+      document.getElementById("mph").innerText = metar.wind.speed_mph + " mph";
+      direction(metar.wind.degrees);
+    }
+
+    if (metar.visibility) {
+      document.getElementById("meters").innerText =
+        metar.visibility.meters + " meters";
     }
 
     if (metar.clouds) {
+      document.getElementById("cover").innerText = metar.clouds[0].text;
+    }
+
+    if (metar.barometer) {
+      document.getElementById("pressure").innerText =
+        metar.barometer.hpa + " hPa";
+    }
+
+    if (metar.dewpoint) {
+      document.getElementById("dew").innerText =
+        metar.dewpoint.fahrenheit + "\u00b0F";
+    }
+
+    if (metar.humidity) {
+      document.getElementById("humid").innerText = metar.humidity.percent + "%";
+    }
+
+    if (metar.station) {
+      const apiKey = "7bc9f19e8857bf3aee73aa0014e2fd6c";
+      const [lat, lon] = metar.station.geometry.coordinates;
+      const exclude = "minutely,alerts";
+      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}`;
+
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data); // Handle the data from the API
+        })
+        .catch((error) => {
+          console.error(
+            "There was a problem with your fetch operation:",
+            error
+          );
+        });
+    }
+
+    /*if (metar.clouds) {
       document.getElementById("feet").innerText =
         metar.clouds[0].feet + " feet";
       document.getElementById("meter").innerText =
         metar.clouds[0].meters + " meters";
       document.getElementById("text").innerText = metar.clouds[0].text;
       document.getElementById("code").innerText = metar.clouds[0].code;
-    }
-
-    if (metar.wind) {
-      document.getElementById("degree").innerText =
-        metar.wind.degrees + " degrees";
-      document.getElementById("mph").innerText = metar.wind.speed_mph + " mph";
-      document.getElementById("kph").innerText = metar.wind.speed_kph + " kph";
-      document.getElementById("kts").innerText = metar.wind.kts + " knots";
-    }
+    }*/
   } else {
     document.getElementById("raw").innerText = "No results returned from API";
+  }
+}
+
+// This will get the direction based on the degrees taken from the fetch
+function direction(d) {
+  let e = document.getElementById("degree");
+
+  // Design choice here = bearing is cardinal when degree is within 10 degrees on both sides
+  if (d <= 10 && d >= 350) {
+    e.innerHTML = "N";
+  } else if (d <= 79 && d >= 11) {
+    e.innerHTML = "NE";
+  } else if (d <= 100 && d >= 80) {
+    e.innerHTML = "E";
+  } else if (d <= 169 && d >= 111) {
+    e.innerHTML = "SE";
+  } else if (d <= 190 && d >= 170) {
+    e.innerHTML = "S";
+  } else if (d <= 259 && d >= 191) {
+    e.innerHTML = "SW";
+  } else if (d <= 280 && d >= 260) {
+    e.innerHTML = "W";
+  } else if (d <= 349 && d >= 281) {
+    e.innerHTML = "NW";
   }
 }
