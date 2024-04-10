@@ -9,45 +9,40 @@ body {
 
 .parent {
   margin: 20px auto;
-  width: 1280px;
-  height: auto;
+  width: 95%;
+  max-width: 1280px;
   padding: 10px;
-  opacity: 95%;
-
+  opacity: 0.95;
   display: grid;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 100px auto 100px;
   grid-template-areas:
     "a a a a a"
     "b b b b b"
     "c c c c c";
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .div1 {
-  grid-area: 1 / 1 / 2 / 6;
-  border: 1px solid black;
-  border-radius: 20px 20px 0px 0px;
   grid-area: a;
+  border: 1px solid black;
+  border-radius: 20px 20px 0 0;
   background-color: #0c1818;
   padding: 12px;
   text-align: center;
 }
 
 .div2 {
+  grid-area: b;
   padding: 10px;
   border: 1px solid black;
-  grid-area: b;
   background-color: #c8e3ef;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: 50px repeat(5, 100px);
   grid-column-gap: 20px;
   grid-row-gap: 15px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(5, 100px);
   grid-template-areas:
     "a1 a1"
     "b1 c1"
@@ -56,6 +51,20 @@ body {
     "h1 i1"
     "j1 j1";
 }
+
+.diva,
+.divb,
+.divc,
+.divd,
+.dive,
+.divf,
+.divg,
+.divh,
+.divi,
+.divj {
+  padding: 10px;
+}
+
 .diva {
   grid-area: a1;
 }
@@ -86,47 +95,103 @@ body {
 .divj {
   grid-area: j1;
 }
+
 .div3 {
-  border-radius: 0px 0px 20px 20px;
   grid-area: c;
+  border-radius: 0 0 20px 20px;
   padding: 12px;
   background-color: #0c1818;
 }
+
 .header {
   color: #c8e3ef;
-  display: inline;
 }
+
+.header2 {
+  color: #c8e3ef;
+}
+
+.header3 {
+  color: #c8e3ef;
+}
+
 .rmiddle {
-  /* Centers content horizontally */
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
 }
 
 .formatting {
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 20px;
   background-color: #93c3d7;
   padding-left: 20px;
-}
-
-.size_change {
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .size_change:hover {
   transform: scale(1.025);
 }
 
-/* Define the initial state of the email link */
 a {
-  color: #c8e3ef; /* Initial color */
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  color: #c8e3ef;
+  transition: color 0.3s ease;
 }
 
-/* Define the hover state */
 a:hover {
-  color: #4a98b4; /* New color when hovered over */
+  color: #4a98b4;
+}
+
+.header2::after {
+  content: " | ";
+  color: #c8e3ef; /* Color of the vertical line */
+}
+
+.header3::before {
+  content: " | ";
+  color: #c8e3ef; /* Color of the vertical line */
+}
+
+/* Base font size */
+html {
+  font-size: 14px;
+}
+
+/* Adjust font size for larger screens */
+@media (min-width: 768px) {
+  .diva {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Adjust font size for even larger screens */
+@media (min-width: 1024px) {
+  .diva {
+    font-size: 16.25px;
+  }
+  html {
+    font-size: 16.25px;
+  }
+}
+
+/* Adjust font size for smaller screens */
+@media (max-width: 600px) {
+  .diva {
+    margin-bottom: 5px;
+    font-size: 9px;
+  }
+  .div3 {
+    font-size: 8px;
+  }
+  html {
+    font-size: 10px;
+  }
+  body {
+    height: 85%;
+  }
 }
 
 /* Color Pallete
