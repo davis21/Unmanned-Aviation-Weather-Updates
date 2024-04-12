@@ -52,19 +52,6 @@ body {
     "j1 j1";
 }
 
-.diva,
-.divb,
-.divc,
-.divd,
-.dive,
-.divf,
-.divg,
-.divh,
-.divi,
-.divj {
-  padding: 10px;
-}
-
 .diva {
   grid-area: a1;
 }
